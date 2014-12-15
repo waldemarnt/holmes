@@ -17,9 +17,10 @@ public class App
     {
         ImageObjectMatch obj = delegateCorrectConstructor(args);
         ImageCreator ic = new ImageCreator(obj);
+        ic.create();
         
         /*
-         * if show proview is true, show the image
+         * if show preview is true, show the image
          */
         if(obj.isShowPreview()){
     		cvShowImage("Template Matching preview 0.0.1", obj.getIplTemplateSrc());

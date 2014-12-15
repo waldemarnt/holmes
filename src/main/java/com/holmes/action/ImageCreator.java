@@ -72,6 +72,7 @@ public class ImageCreator implements ImageMatchInterface {
 	protected void handleNewImageCreation(){
 		makeMatch();
 		createMinMaxLocByPoint();
+		createCroppedRect();
 		attachImages();
 	}
 	

@@ -25,6 +25,9 @@
     	<groupId>org.bytedeco</groupId>
     	<artifactId>javacv</artifactId>
     	<version>0.9</version>
+		<properties>
+		    <lib.directory>C:\opencv\build\x64\vc10\bin</lib.directory>
+		</properties>	
     </dependency>
   </dependencies>
 </project>
