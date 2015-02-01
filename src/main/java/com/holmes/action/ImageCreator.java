@@ -12,7 +12,7 @@ import static org.bytedeco.javacpp.opencv_core.cvZero;
 import static org.bytedeco.javacpp.opencv_highgui.cvLoadImage;
 import static org.bytedeco.javacpp.opencv_highgui.cvSaveImage;
 import static org.bytedeco.javacpp.opencv_highgui.cvWaitKey;
-import static org.bytedeco.javacpp.opencv_imgproc.CV_TM_CCORR;
+import static org.bytedeco.javacpp.opencv_imgproc.CV_TM_CCOEFF_NORMED;
 import static org.bytedeco.javacpp.opencv_imgproc.cvMatchTemplate;
 
 import org.bytedeco.javacpp.DoublePointer;
@@ -81,7 +81,7 @@ public class ImageCreator implements ImageMatchInterface {
 	 */
 	protected void makeMatch(){
 		
-		cvMatchTemplate(this.templateSrc, this.templateNest, this.templateResult, CV_TM_CCORR);
+		cvMatchTemplate(this.templateSrc, this.templateNest, this.templateResult, CV_TM_CCOEFF_NORMED);
 	}
 	
 	protected void createMinMaxLocByPoint(){
