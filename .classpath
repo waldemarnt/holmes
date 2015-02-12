@@ -23,5 +23,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV-2.4.9"/>
+	<classpathentry kind="lib" path="C:/Users/Waldema/Downloads/javacv-bin/opencv.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Waldema/Downloads/javacv-bin/javacpp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Waldema/Downloads/javacv-bin/javacv.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Waldema/Downloads/javacv-bin/opencv-windows-x86.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Waldema/Downloads/javacv-bin/opencv-windows-x86_64.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

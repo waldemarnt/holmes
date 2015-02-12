@@ -119,16 +119,41 @@ public class ImageCreator implements ImageMatchInterface {
 	 */
 	protected CvRect createRect(){
 		CvRect rect = new CvRect();
-		
-		if(objectMatch.getHeight()/maxLoc.x() < 1){
-			rect.x(maxLoc.x()-objectMatch.getWidth());
-			rect.y(maxLoc.y()- objectMatch.getHeight());
+		//total x size with all size increments to crop
+		int totalXSize = objectMatch.getWidth() + maxLoc.x() + this.templateNest.width();
+		//total y size with all increments to crop
+		int totalYSize = objectMatch.getHeight() + maxLoc.y() + this.templateNest.height();
+		//limit of size
+		int xLimit = totalXSize - this.templateSrc.width();
+		int yLimit = totalYSize - this.templateSrc.height();
+
+
+		if(xLimit > 0  && yLimit <= 0){
+			rect.x(maxLoc.x() - xLimit);
+			rect.y(maxLoc.y());
 			rect.width(this.templateNest.width() + objectMatch.getWidth());
-			rect.height(this.templateNest.width() + objectMatch.getHeight());
+			rect.height(this.templateNest.height() + objectMatch.getHeight());
+
+			return rect;
+
+		}else if(xLimit <= 0  && yLimit > 0){
+			rect.x(maxLoc.x());
+			rect.y(maxLoc.y() - yLimit);
+			rect.width(this.templateNest.width() + objectMatch.getWidth());
+			rect.height(this.templateNest.height() + objectMatch.getHeight());
 			
 			return rect;
 
-		}		
+		}else if(xLimit > 0 && yLimit > 0){
+			rect.x(maxLoc.x() - xLimit);
+			rect.y(maxLoc.y() - yLimit);
+			rect.width(this.templateNest.width() + objectMatch.getWidth());
+			rect.height(this.templateNest.height() + objectMatch.getHeight());
+			
+			return rect;
+
+		}
+		
 		rect.x(maxLoc.x());
 		rect.y(maxLoc.y());
 		rect.width(this.templateNest.width() + objectMatch.getWidth());
